@@ -53,7 +53,7 @@
 						// To get this value, look at the Authentication notes in the API docs.
 						// Example: $ curl https://api.airtable.com/v0/appZZ12rVdg6qzyC/foo...
 						// .. where "appZZ12rVdg6qzyC" is the App ID.
-						define ( 'AIRTABLE_APP_ID', 'app6lTUmzLmvZLaSN' );
+						define ( 'AIRTABLE_APP_ID', 'appG4PvNRLWqw84f4' );
 						
 						// Airtable API URL.
 						// Default: https://api.airtable.com/v0/
@@ -89,7 +89,7 @@
 
 						$airtable_url = AIRTABLE_API_URL . AIRTABLE_APP_ID;
 							// We're also specifying a table.
-							$airtable_url .= '/phones';
+							$airtable_url .= '/2013 Candidates';
 							// And we're specifying a view. The API will honor any filters 
 							// that have been applied to the view, as well as any sort
 							// order that has been applied to it.
@@ -103,7 +103,7 @@
 							// We're also specifying a sort order for the request,
 							// which will override any sort order that has been 
 							// applied on the view.
-							$airtable_url .= '&sortField=number&sortDirection=asc';
+							$airtable_url .= '&sortField=Office%20Sought&sortDirection=asc';
 
 							curl_setopt( $ch, CURLOPT_URL, $airtable_url );		
 									
@@ -144,20 +144,18 @@
 								// Note that we're passing the Airtable-assigned record ID.
 								echo '<li>';
 								echo '<a href="artist.php?id=' . $record['id'] . '">';
-								echo $record['fields']['number'] . '</a>';
+								echo $record['fields']['Last Name'] . '</a>';
 								echo '</li>';
 
 								//$phone_number = implode(",", $record['fields']['number']);
-								$number = str_replace("'","\'",$record['fields']['number']);
-								$locations = implode(",", $record['fields']['locations']);
-								$services = implode(",", $record['fields']['services']);
-								$organizations = implode(",", $record['fields']['organizations']);
-								$contacts = implode(",", $record['fields']['contacts']);
-								$language = implode(",", $record['fields']['language']);
-								$description = str_replace("'","\'",$record['fields']['description']);
-
-								$sql = "INSERT INTO phones (phone_id, phone_number, locations, services, organizations, contacts, service_at_location_id, extension, type, language, description)
-								VALUES ( '{$record['id']}', '{$number}', '{$locations}', '{$services}', '{$organizations}', '{$contacts}', '{$record['fields']['service_at_location_id']}', '{$record['fields']['extension']}', '{$record['fields']['type']}', '{$language}', '{$description}');";
+								$office_sought = implode(",", $record['fields']['Office Sought']);
+								$organization = str_replace("'","\'",$record['fields']['Organizations']);
+								$organizations = implode(",", $organization);
+								$party = implode(",", $record['fields']['Party']);
+								$winner = implode(",", $record['fields']['Winner']);
+								
+								$sql = "INSERT INTO 2013_candidates (2013_id, 2013_lastname, 2013_firstname, 2013_classification, 2013_office_sought, 2013_organizations, 2013_party, 2013_elected, 2013_winner)
+								VALUES ('{$record['id']}', '{$record['fields']['Last Name']}', '{$record['fields']['First Name']}', '{$record['fields']['Classification']}', '{$office_sought}', '{$organizations}', '{$party}', '{$winner}', '{$record['fields']['Elected']}');";
 
 								if ($conn->query($sql) === TRUE) {
 								    echo "New record created successfully";

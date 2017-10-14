@@ -25,7 +25,7 @@
 						$servername = "localhost";
 						$username = "root";
 						$password = "root";
-						$dbname = "airtable2";
+						$dbname = "airtable3";
 						$sql = '';
 
 						// Create connection
@@ -37,7 +37,7 @@
 						} 
 						echo "Connected successfully. ";
 
-						$sql = "TRUNCATE TABLE programs;";
+						$sql = "TRUNCATE TABLE office_sought;";
 
 						if ($conn->query($sql) === TRUE) {
 						    echo "New record created successfully";
@@ -53,7 +53,7 @@
 						// To get this value, look at the Authentication notes in the API docs.
 						// Example: $ curl https://api.airtable.com/v0/appZZ12rVdg6qzyC/foo...
 						// .. where "appZZ12rVdg6qzyC" is the App ID.
-						define ( 'AIRTABLE_APP_ID', 'app6lTUmzLmvZLaSN' );
+						define ( 'AIRTABLE_APP_ID', 'appG4PvNRLWqw84f4' );
 						
 						// Airtable API URL.
 						// Default: https://api.airtable.com/v0/
@@ -89,7 +89,7 @@
 
 						$airtable_url = AIRTABLE_API_URL . AIRTABLE_APP_ID;
 							// We're also specifying a table.
-							$airtable_url .= '/program';
+							$airtable_url .= '/Office Sought';
 							// And we're specifying a view. The API will honor any filters 
 							// that have been applied to the view, as well as any sort
 							// order that has been applied to it.
@@ -103,7 +103,7 @@
 							// We're also specifying a sort order for the request,
 							// which will override any sort order that has been 
 							// applied on the view.
-							$airtable_url .= '&sortField=name&sortDirection=asc';
+							$airtable_url .= '&sortField=Name&sortDirection=asc';
 
 							curl_setopt( $ch, CURLOPT_URL, $airtable_url );		
 									
@@ -144,14 +144,18 @@
 								// Note that we're passing the Airtable-assigned record ID.
 								echo '<li>';
 								echo '<a href="artist.php?id=' . $record['id'] . '">';
-								echo $record['fields']['name'] . '</a>';
+								echo $record['fields']['Name'] . '</a>';
 								echo '</li>';
-							
-								$organizations = implode(",", $record['fields']['organizations']);
-								$services = implode(",", $record['fields']['services']);
 
-								$sql = "INSERT INTO programs (program_id, name, alternate_name, organizations, services)
-								VALUES ( '{$record['id']}', '{$record['fields']['name']}', '{$record['fields']['alternate_name']}', '{$organizations}', '{$services}');";
+								$borough = implode(",", $record['fields']['Borough']);								
+								$neighborhood = str_replace("'","\'",$record['fields']['Neighborhoods']);
+								$neighborhoods = implode(",", $neighborhood);
+								$candidates2013 = implode(",", $record['fields']['2013 Candidates']);
+								$candidates2017 = implode(",", $record['fields']['2017 Candidates']);
+								$incumbent = implode(",", $record['fields']['Incumbent']);
+								
+								$sql = "INSERT INTO office_sought (office_sought_id, name, borough, neighborhoods, 2013_candidates, 2017_candidates, incumbent)
+								VALUES ('{$record['id']}', '{$record['fields']['Name']}', '{$borough}', '{$neighborhoods}', '{$candidates2013}', '{$candidates2017}', '{$incumbent}');";
 
 								if ($conn->query($sql) === TRUE) {
 								    echo "New record created successfully";

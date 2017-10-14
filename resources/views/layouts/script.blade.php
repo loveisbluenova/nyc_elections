@@ -22,7 +22,7 @@
         <!-- BEGIN THEME GLOBAL SCRIPTS -->
         <script src="../global/scripts/app.min.js" type="text/javascript"></script>
         <!-- END THEME GLOBAL SCRIPTS -->
-        <script src="../pages/scripts/table-datatables-scroller.min.js" type="text/javascript"></script>
+        <script src="../pages/scripts/table-datatables-scroller.js" type="text/javascript"></script>
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
         <script src="../pages/scripts/components-select2.min.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
