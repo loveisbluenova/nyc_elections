@@ -24,17 +24,12 @@ Route::get('/endorsers', [
     'uses' 		=> 'EndorserController@all'
 ]);
 
-Route::get('/endorser', [
-    'uses' 		=> 'EndorserController@find'
-]);
+
 
 Route::get('/offices', [
     'uses' 		=> 'OfficeController@all'
 ]);
 
-Route::get('/office', [
-    'uses' 		=> 'OfficeController@find'
-]);
 
 
 
@@ -53,17 +48,10 @@ Route::get('/activate/{code}', [
 	'uses'		=> 'Auth\AuthController@activateAccount'
 ]);
 
-Route::get('/service_all', 'ServiceController@all');
-Route::get('/service_{id}', 'ServiceController@find');
 
-Route::get('/organization_all', 'OrganizationController@all');
-Route::get('/organization_{id}', 'OrganizationController@find');
+Route::get('/endorser_{id}', 'EndorserController@find');
 
-Route::get('/location_all', 'LocationController@all');
-Route::get('/location_{id}', 'LocationController@find');
-
-Route::get('/category_all', 'TaxonomyController@all');
-Route::get('/category_{id}', 'TaxonomyController@find');
+Route::get('/office_{id}', 'OfficeController@find');
 
 
 

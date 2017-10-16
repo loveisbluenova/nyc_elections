@@ -148,13 +148,13 @@
 								echo '</li>';
 
 								//$phone_number = implode(",", $record['fields']['number']);
-								$office_sought = implode(",", $record['fields']['Office Sought']);
+								$office_sought = implode(", ", $record['fields']['Office Sought']);
 								$organization = str_replace("'","\'",$record['fields']['Organizations']);
-								$organizations = implode(",", $organization);
-								$party = implode(",", $record['fields']['Party']);
-								$winner = implode(",", $record['fields']['Winner']);
+								$organizations = implode(", ", $organization);
+								$party = implode(", ", $record['fields']['Party']);
+								$winner = implode(", ", $record['fields']['Winner']);
 								
-								$sql = "INSERT INTO 2013_candidates (2013_id, 2013_lastname, 2013_firstname, 2013_classification, 2013_office_sought, 2013_organizations, 2013_party, 2013_elected, 2013_winner)
+								$sql = "INSERT INTO 2013_candidates (id2013, lastname2013, firstname2013, classification2013, office_sought2013, organizations2013, party2013, elected2013, winner2013)
 								VALUES ('{$record['id']}', '{$record['fields']['Last Name']}', '{$record['fields']['First Name']}', '{$record['fields']['Classification']}', '{$office_sought}', '{$organizations}', '{$party}', '{$winner}', '{$record['fields']['Elected']}');";
 
 								if ($conn->query($sql) === TRUE) {

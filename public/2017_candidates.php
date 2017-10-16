@@ -148,13 +148,13 @@
 								echo '</li>';
 
 								//$phone_number = implode(",", $record['fields']['number']);
-								$office_sought = implode(",", $record['fields']['Office Sought']);
+								$office_sought = implode(", ", $record['fields']['Office Sought']);
 								$organization = str_replace("'","\'",$record['fields']['Organizations']);
-								$organizations = implode(",", $organization);
+								$organizations = implode(", ", $organization);
 								$party = implode(",", $record['fields']['Party']);
 								$winner = implode(",", $record['fields']['Winner']);
 								
-								$sql = "INSERT INTO 2017_candidates (2017_id, 2017_last, 2017_first, 2017_classification, 2017_office_sought, 2017_organizations, 2017_party)
+								$sql = "INSERT INTO 2017_candidates (id2017, last2017, first2017, classification2017, office_sought2017, organizations2017, party2017)
 								VALUES ('{$record['id']}', '{$record['fields']['Last']}', '{$record['fields']['First']}', '{$record['fields']['Classification']}', '{$office_sought}', '{$organizations}', '{$party}');";
 
 								if ($conn->query($sql) === TRUE) {

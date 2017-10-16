@@ -148,16 +148,15 @@
 								echo '</li>';
 
 								$organization = str_replace("'","\'",$record['fields']['Organization']);
-								$type = str_replace("'","\'",$record['fields']['type']);
 								$address = str_replace("'","\'",$record['fields']['Address']);
-								$endorsements2013 = implode(",", $record['fields']['2013 Endorsements']);
-								$parties_endorsed2013 = implode(",", $record['fields']['2013 Parties Endorsed']);
-								$endorsments2017 = implode(",", $record['fields']['2017 Endorsments']);
-								$tags = implode(",", $record['fields']['Tags']);
+								$endorsements2013 = implode(", ", $record['fields']['2013 Endorsements']);
+								$parties_endorsed2013 = implode(", ", $record['fields']['2013 Parties Endorsed']);
+								$endorsments2017 = implode(", ", $record['fields']['2017 Endorsments']);
+								$tags = implode(", ", $record['fields']['Tags']);
 
 
-								$sql = "INSERT INTO organizations (organization_id, organization, type, website, email, twitter, facebook, phone, address, 2013_endorsements, 2013_parties_endorsed, 2017_endorsments, notes, tags)
-								VALUES ( '{$record['id']}', '{$organization}', '{$type}', '{$record['fields']['website']}', '{$record['fields']['email']}', '{$record['fields']['twitter']}', '{$record['fields']['facebook']}', '{$record['fields']['phone']}', '{$address}', '{$endorsements2013}', '{$parties_endorsed2013}','{$endorsments2017}', '{$record['fields']['notes']}', '{$tags}');";
+								$sql = "INSERT INTO organizations (organization_id, organization, type, website, email, twitter, facebook, phone, address, endorsements2013, parties_endorsed2013, endorsments2017, notes, tags)
+								VALUES ( '{$record['id']}', '{$organization}', '{$record['fields']['Type']}', '{$record['fields']['Website']}', '{$record['fields']['Email']}', '{$record['fields']['Twitter']}', '{$record['fields']['Facebook']}', '{$record['fields']['Phone']}', '{$address}', '{$endorsements2013}', '{$parties_endorsed2013}','{$endorsments2017}', '{$record['fields']['Notes']}', '{$tags}');";
 
 								if ($conn->query($sql) === TRUE) {
 								    echo "New record created successfully";

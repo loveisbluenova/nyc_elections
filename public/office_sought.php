@@ -147,14 +147,14 @@
 								echo $record['fields']['Name'] . '</a>';
 								echo '</li>';
 
-								$borough = implode(",", $record['fields']['Borough']);								
+								$borough = implode(", ", $record['fields']['Borough']);								
 								$neighborhood = str_replace("'","\'",$record['fields']['Neighborhoods']);
-								$neighborhoods = implode(",", $neighborhood);
-								$candidates2013 = implode(",", $record['fields']['2013 Candidates']);
-								$candidates2017 = implode(",", $record['fields']['2017 Candidates']);
-								$incumbent = implode(",", $record['fields']['Incumbent']);
+								$neighborhoods = implode(", ", $neighborhood);
+								$candidates2013 = implode(", ", $record['fields']['2013 Candidates']);
+								$candidates2017 = implode(", ", $record['fields']['2017 Candidates']);
+								$incumbent = implode(", ", $record['fields']['Incumbent']);
 								
-								$sql = "INSERT INTO office_sought (office_sought_id, name, borough, neighborhoods, 2013_candidates, 2017_candidates, incumbent)
+								$sql = "INSERT INTO office_sought (office_sought_id, name, borough, neighborhoods, candidates2013, candidates2017, incumbent)
 								VALUES ('{$record['id']}', '{$record['fields']['Name']}', '{$borough}', '{$neighborhoods}', '{$candidates2013}', '{$candidates2017}', '{$incumbent}');";
 
 								if ($conn->query($sql) === TRUE) {

@@ -25,7 +25,7 @@
 						$servername = "localhost";
 						$username = "root";
 						$password = "root";
-						$dbname = "airtable2";
+						$dbname = "airtable3";
 						$sql = '';
 
 						// Create connection
@@ -37,7 +37,7 @@
 						} 
 						echo "Connected successfully. ";
 
-						$sql = "TRUNCATE TABLE regulars;";
+						$sql = "TRUNCATE TABLE sources;";
 
 						if ($conn->query($sql) === TRUE) {
 						    echo "New record created successfully";
@@ -53,7 +53,7 @@
 						// To get this value, look at the Authentication notes in the API docs.
 						// Example: $ curl https://api.airtable.com/v0/appZZ12rVdg6qzyC/foo...
 						// .. where "appZZ12rVdg6qzyC" is the App ID.
-						define ( 'AIRTABLE_APP_ID', 'app6lTUmzLmvZLaSN' );
+						define ( 'AIRTABLE_APP_ID', 'appG4PvNRLWqw84f4' );
 						
 						// Airtable API URL.
 						// Default: https://api.airtable.com/v0/
@@ -89,7 +89,7 @@
 
 						$airtable_url = AIRTABLE_API_URL . AIRTABLE_APP_ID;
 							// We're also specifying a table.
-							$airtable_url .= '/regular_schedule';
+							$airtable_url .= '/sources';
 							// And we're specifying a view. The API will honor any filters 
 							// that have been applied to the view, as well as any sort
 							// order that has been applied to it.
@@ -103,7 +103,7 @@
 							// We're also specifying a sort order for the request,
 							// which will override any sort order that has been 
 							// applied on the view.
-							$airtable_url .= '&sortField=id&sortDirection=asc';
+							$airtable_url .= '&sortField=Name&sortDirection=asc';
 
 							curl_setopt( $ch, CURLOPT_URL, $airtable_url );		
 									
@@ -144,15 +144,14 @@
 								// Note that we're passing the Airtable-assigned record ID.
 								echo '<li>';
 								echo '<a href="artist.php?id=' . $record['id'] . '">';
-								echo $record['fields']['id'] . '</a>';
+								echo $record['fields']['Name'] . '</a>';
 								echo '</li>';
+								
+								$name = str_replace("'","\'",$record['fields']['Name']);
 
-								$services = str_replace("'","\'",$record['fields']['services']);
-								$locations = implode(",", $record['fields']['locations']);
-
-
-								$sql = "INSERT INTO regulars (regular_id, schedule_id, services, locations, weekday, opens_at, closes_at)
-								VALUES ( '{$record['id']}', '{$record['fields']['id']}', '{$services}', '{$locations}', '{$record['fields']['weekday']}', '{$record['fields']['opens_at']}', '{$record['fields']['closes_at']}');";
+								
+								$sql = "INSERT INTO sources (source_id, source_name, notes, attachments)
+								VALUES ('{$record['id']}', '{$name}', '{$record['fields']['Notes']}', '{$record['fields']['Attachments']}');";
 
 								if ($conn->query($sql) === TRUE) {
 								    echo "New record created successfully";

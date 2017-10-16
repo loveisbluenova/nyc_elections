@@ -11,6 +11,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use App\Logic\User\UserRepository;
 use Illuminate\Support\Facades\DB;
+use App\Models\Organization;
+use App\Models\Candidates2013;
+use App\Models\Candidates2017;
+use App\Models\Office;
 
 
 class EndorserController extends Controller
@@ -18,8 +22,9 @@ class EndorserController extends Controller
 
     public function all()
     {
+        $organizations = Organization::all();
 
-        return view('frontend.endorsers');
+        return view('frontend.endorsers', compact('organizations'));
     }
  
 
@@ -29,11 +34,14 @@ class EndorserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function find()
+    public function find($id)
 
     {
+        $organization = DB::table('organizations')->where('organization_id', '=', $id)->first();
+        $endorsers= DB::table('2013_candidates')->where('organizations2013', 'like', '%'.$id.'%')->leftjoin('office_sought', '2013_candidates.office_sought2013', '=', 'office_sought.office_sought_id')->get();
 
-        return view('frontend.endorser');
+        $endorserts= DB::table('2017_candidates')->where('organizations2017', 'like', '%'.$id.'%')->leftjoin('office_sought', '2017_candidates.office_sought2017', '=', 'office_sought.office_sought_id')->get();
+        return view('frontend.endorser', compact('endorsers', 'endorserts','organization'));
     }
 
     /**
