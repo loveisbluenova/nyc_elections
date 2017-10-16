@@ -155,7 +155,7 @@
 								$winner = implode(", ", $record['fields']['Winner']);
 								
 								$sql = "INSERT INTO 2013_candidates (id2013, lastname2013, firstname2013, classification2013, office_sought2013, organizations2013, party2013, elected2013, winner2013)
-								VALUES ('{$record['id']}', '{$record['fields']['Last Name']}', '{$record['fields']['First Name']}', '{$record['fields']['Classification']}', '{$office_sought}', '{$organizations}', '{$party}', '{$winner}', '{$record['fields']['Elected']}');";
+								VALUES ('{$record['id']}', '{$record['fields']['Last Name']}', '{$record['fields']['First Name']}', '{$record['fields']['Classification']}', '{$office_sought}', '{$organizations}', '{$party}',  '{$record['fields']['Elected']}', '{$winner}');";
 
 								if ($conn->query($sql) === TRUE) {
 								    echo "New record created successfully";

@@ -44,7 +44,8 @@
                                     <!-- BEGIN PAGE CONTENT INNER -->
                                     <div class="page-content-inner">
                                         <div class="note note-info">
-                                            <p> A black page template with a minimal dependency assets to use as a base for any custom page you create </p>
+                                            <h4>{{$endpost->title}}</h4>
+                                            {!! $endpost->body !!}
                                         </div>
                                     </div>
                                     <!-- END PAGE CONTENT INNER -->
@@ -62,28 +63,28 @@
                                                                 <span class="input-group-addon" style="background-color: #fafafa;">
                                                                         Type                                                   
                                                                 </span>
-                                                                <select id="single-prepend-text" class="form-control select2">
+                                                                <select id="single-prepend-text" class="form-control type select2" name="" onchange="javascript:location.href = this.value;">
                                                                     <option></option>
-                                                                    <option value="A">A</option>
-                                                                    <option value="B">B</option>
-                                                                    <option value="C">C</option>
+                                                                    @foreach($types as $type)
+                                                                        <option value="type_{{$type->type}}">{{$type->type}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-4">
+                                                <!--    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="input-group select2-bootstrap-prepend">
                                                                 <span class="input-group-addon" style="background-color: #fafafa;">
                                                                     Year</span>
-                                                                <select id="single-append-radio" class="form-control select2-allow-clear" multiple>
+                                                                <select id="single-append-radio" class="form-control year select2"  name="" onchange="javascript:location.href = this.value;">
                                                                     <option></option>
-                                                                        <option value="2013">2013</option>
-                                                                        <option value="2017">2017</option>               
+                                                                        <option value="year_2013">2013</option>
+                                                                        <option value="year_2017">2017</option>               
                                                                 </select>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                    </div>-->
                             
                                                     <div class="tools"> </div>
                                                 </div>
@@ -131,4 +132,20 @@
 
 
 @include('layouts.script')
+<script type="text/javascript">
+
+var type = <?php print_r(json_encode($id1)) ?>;
+var year = <?php print_r(json_encode($id2)) ?>;
+
+$( document ).ready(function() {
+    $(".type.select2").select2({
+            placeholder: type,
+            width: null
+        });
+    $(".year.select2").select2({
+            placeholder: year,
+            width: null
+        });
+});
+</script>
 

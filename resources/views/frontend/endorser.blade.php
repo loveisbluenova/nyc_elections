@@ -78,12 +78,21 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach($endorsers as $endorser)
+                                                            @if($endorser->elected2013==1)
                                                             <tr>
-                                                                <td>{{$endorser->firstname2013}} {{$endorser->lastname2013}}</td>
+                                                                <td style="color: #f00;">{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
+                                                                <td style="color: #f00;">{{$endorser->classification2013}}</td>
+                                                                <td style="color: #f00;">{{$endorser->party2013}}</td>
+                                                                <td style="color: #f00;">{{$endorser->name}}</td>
+                                                            </tr>
+                                                            @else
+                                                            <tr>
+                                                                <td>{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
                                                                 <td>{{$endorser->classification2013}}</td>
                                                                 <td>{{$endorser->party2013}}</td>
                                                                 <td>{{$endorser->name}}</td>
                                                             </tr>
+                                                            @endif
                                                              @endforeach
                                                         </tbody>
                                                     </table>
@@ -112,7 +121,7 @@
                                                         <tbody>
                                                             @foreach($endorserts as $endorsert)
                                                             <tr>
-                                                                <td>{{$endorsert->first2017}} {{$endorsert->last2017}}</td>
+                                                                <td>{{$endorsert->last2017}} {{$endorsert->first2017}}</td>
                                                                 <td>{{$endorsert->classification2017}}</td>
                                                                 <td>{{$endorsert->party2017}}</td>
                                                                 <td>{{$endorsert->name}}</td>

@@ -32,8 +32,20 @@
             </li>
 
             <li>
+              <a href="/endposts">
+                <i class="fa fa-pencil"></i> <span>Endorser Edit</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="/officeposts">
+                <i class="fa fa-pencil"></i> <span>Office Edit</span>
+              </a>
+            </li>
+
+            <li>
               <a href="/abouts">
-                <i class="fa  fa-info-circle"></i> <span>About Edit</span>
+                <i class="fa fa-pencil"></i> <span>About Edit</span>
               </a>
             </li>
 

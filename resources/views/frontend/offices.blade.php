@@ -44,7 +44,8 @@
                                     <!-- BEGIN PAGE CONTENT INNER -->
                                     <div class="page-content-inner">
                                         <div class="note note-info">
-                                            <p> A black page template with a minimal dependency assets to use as a base for any custom page you create </p>
+                                            <h4>{{$officepost->title}}</h4>
+                                            {!! $officepost->body !!}
                                         </div>
                                     </div>
                                     <!-- END PAGE CONTENT INNER -->
@@ -63,13 +64,11 @@
                                                                 <span class="input-group-addon" style="background-color: #fafafa;">
                                                                     Borough                                                 
                                                                 </span>
-                                                                <select id="single-prepend-text" class="form-control select2" name="" onchange="javascript:location.href = this.value;">
+                                                                <select id="single-prepend-text" class="form-control borough select2" name="" onchange="javascript:location.href = this.value;">
                                                                     <option></option>
-                                                                    <option value="brough_Bronx">A</option>
-                                                                    <option value="brough_Brooklyn">B</option>
-                                                                    <option value="brough_Manhattan">C</option>
-                                                                    <option value="brough_Queens">C</option>
-                                                                    <option value="brough_Staten Island">C</option>
+                                                                    @foreach($boroughs as $borough)
+                                                                        <option value="borough_{{$borough->borough_name}}">{{$borough->borough_name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -81,11 +80,11 @@
                                                                 <span class="input-group-addon" style="background-color: #fafafa;">
                                                                         Neighborhood                                                   
                                                                 </span>
-                                                                <select id="single-prepend-text" class="form-control select2" name="" onchange="javascript:location.href = this.value;">
+                                                                <select id="single-prepend-text" class="form-control neighborhood select2" name="" onchange="javascript:location.href = this.value;">
                                                                     <option></option>
-                                                                    <option value="A">A</option>
-                                                                    <option value="B">B</option>
-                                                                    <option value="C">C</option>
+                                                                    @foreach($neighborhoods as $neighborhood)
+                                                                        <option value="neighborhood_{{$neighborhood->neighborhood_name}}">{{$neighborhood->neighborhood_name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                                 
                                                             </div>
@@ -100,6 +99,7 @@
                                                             <tr>
                                                                 <th>Office&nbsp;Name</th>
                                                                 <th>Borough</th>
+                                                            <!--    <th>Neighborhoods</th>-->
                                                                 <th>2013 Candidates</th>
                                                                 <th>2017 Candidates</th>
                                                             </tr>
@@ -109,6 +109,7 @@
                                                             <tr>
                                                                 <td><a href="office_{{$office->office_sought_id}}">{{$office->name}}</a></td>
                                                                 <td>{{$office->borough}}</td>
+                                                            <!--    <td>{{$office->neighborhoods}}</td>-->
                                                                 <td>{{sizeof(explode(",", $office->candidates2013))}}</td>
                                                                 <td>{{sizeof(explode(",", $office->candidates2017))}}</td>
                                                             </tr>
@@ -136,4 +137,20 @@
 
 
 @include('layouts.script')
+<script type="text/javascript">
+
+var borough = <?php print_r(json_encode($id1)) ?>;
+var neighborhood = <?php print_r(json_encode($id2)) ?>;
+
+$( document ).ready(function() {
+    $(".borough.select2").select2({
+            placeholder: borough,
+            width: null
+        });
+    $(".neighborhood.select2").select2({
+            placeholder: neighborhood,
+            width: null
+        });
+});
+</script>
 

@@ -73,7 +73,7 @@
                                                         <tbody>
                                                             @foreach($candidaters as $candidater)
                                                             <tr>
-                                                                <td>{{$candidater->first2017}} {{$candidater->last2017}}</td>
+                                                                <td>{{$candidater->last2017}} {{$candidater->first2017}}</td>
                                                                 <td>{{$candidater->party2017}}</td>
                                                                 <td>{{$candidater->organization_name}}</td>
                                                             </tr>
@@ -105,11 +105,19 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach($candidates as $candidate)
-                                                            <tr>  
-                                                                <td>{{$candidate->firstname2013}} {{$candidate->lastname2013}}</td>
-                                                                <td>{{$candidate->party2013}}</td>
-                                                                <td>{{$candidate->organization_name}}</td>
-                                                            </tr>
+                                                                @if($candidate->elected2013==1)
+                                                                <tr>  
+                                                                    <td style="color: #f00;">{{$candidate->lastname2013}} {{$candidate->firstname2013}}</td>
+                                                                    <td style="color: #f00;">{{$candidate->party2013}}</td>
+                                                                    <td style="color: #f00;">{{$candidate->organization_name}}</td>
+                                                                </tr>
+                                                                @else
+                                                                <tr>  
+                                                                    <td>{{$candidate->lastname2013}} {{$candidate->firstname2013}}</td>
+                                                                    <td>{{$candidate->party2013}}</td>
+                                                                    <td>{{$candidate->organization_name}}</td>
+                                                                </tr>
+                                                                @endif
                                                             @endforeach
                                                         </tbody>
                                                     </table>

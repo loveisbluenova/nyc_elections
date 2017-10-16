@@ -24,7 +24,7 @@
         <!-- END THEME GLOBAL SCRIPTS -->
         <script src="../pages/scripts/table-datatables-scroller.js" type="text/javascript"></script>
         <!-- BEGIN PAGE LEVEL SCRIPTS -->
-        <script src="../pages/scripts/components-select2.min.js" type="text/javascript"></script>
+        <script src="../pages/scripts/components-select2.js" type="text/javascript"></script>
         <!-- END PAGE LEVEL SCRIPTS -->
         <!-- BEGIN THEME LAYOUT SCRIPTS -->
         <script src="../layouts/layout3/scripts/layout.min.js" type="text/javascript"></script>

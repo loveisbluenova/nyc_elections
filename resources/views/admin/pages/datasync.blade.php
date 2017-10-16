@@ -26,19 +26,19 @@
             </div>
             <div class="box-body">
               <p>Please click follow button.</p>
-              <a href="http://localhost:8000/organizations.php" class="btn btn-app">
+              <a href="http://endorsements.votedevin.com/organizations.php" class="btn btn-app">
                 <i class="fa  fa-bank"></i> Organizations
               </a>
-              <a href="http://localhost:8000/2013_candidates.php" class="btn btn-app">
+              <a href="http://endorsements.votedevin.com/2013_candidates.php" class="btn btn-app">
                 <i class="fa fa-users"></i> 2013 Candidates
               </a>
-              <a href="http://localhost:8000/2017_candidates.php" class="btn btn-app">
+              <a href="http://endorsements.votedevin.com/2017_candidates.php" class="btn btn-app">
                 <i class="fa fa-user"></i> 2017 Candidates
               </a>
-              <a href="http://localhost:8000/office_sought.php" class="btn btn-app">
+              <a href="http://endorsements.votedevin.com/office_sought.php" class="btn btn-app">
                 <i class="fa fa-building"></i> Office Sought
               </a>
-              <a href="http://localhost:8000/sources.php" class="btn btn-app">
+              <a href="http://endorsements.votedevin.com/sources.php" class="btn btn-app">
                 <i class="fa fa-tasks"></i> Source
               </a>
             </div>

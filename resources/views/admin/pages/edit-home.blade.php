@@ -1,6 +1,6 @@
 @extends('admin.layouts.dashboardhome') 
 
-@section('template_title') Edit your profile 
+@section('template_title') Edit Contact Page
 @endsection 
 
 @section('template_fastload_css') 
@@ -20,7 +20,7 @@
 <div class="content-wrapper">
     <section class="content-header">
         <h1>
-				Home Edit
+				Contact Page Edit
 				<small> {{ Lang::get('pages.dashboard-access-level',['access' => $access] ) }} </small>
 			</h1> {!! Breadcrumbs::render('profile_edit', $user) !!}
 

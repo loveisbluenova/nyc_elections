@@ -51,8 +51,15 @@ Route::get('/activate/{code}', [
 
 Route::get('/endorser_{id}', 'EndorserController@find');
 
+Route::get('/type_{id}', 'EndorserController@type');
+
+Route::get('/year_{id}', 'EndorserController@year');
+
 Route::get('/office_{id}', 'OfficeController@find');
 
+Route::get('/borough_{id}', 'OfficeController@borough');
+
+Route::get('/neighborhood_{id}', 'OfficeController@neighborhood');
 
 
 Route::match(['get', 'post'], '/services_find', [
@@ -176,6 +183,10 @@ Route::group(['middleware' => 'administrator'], function () {
 	Route::resource('posts', 'PostsController');
 
 	Route::resource('abouts', 'AboutsController');
+
+	Route::resource('endposts', 'EndpostsController');
+
+	Route::resource('officeposts', 'OfficepostsController');
 
 });
 
