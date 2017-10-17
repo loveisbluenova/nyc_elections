@@ -47,9 +47,9 @@ class OfficeController extends Controller
 
         $office = DB::table('office_sought')->where('office_sought_id', '=', $id)->first();
 
-        $candidaters = DB::table('2017_candidates')->where('office_sought2017', '=', $id)->leftjoin('organizations', '2017_candidates.organizations2017', 'like', DB::raw("concat('%', organizations.organization_id, '%')"))->select('2017_candidates.*', DB::raw('group_concat(organizations.organization SEPARATOR ", ") as organization_name'))->groupBy('2017_candidates.id')->get();
+        $candidaters = DB::table('2017_candidates')->where('office_sought2017', '=', $id)->leftjoin('organizations', '2017_candidates.organizations2017', 'like', DB::raw("concat('%', organizations.organization_id, '%')"))->select('2017_candidates.*', DB::raw('group_concat(organizations.organization) as organization_name'))->groupBy('2017_candidates.id')->get();
 
-        $candidates = DB::table('2013_candidates')->orderBy('2013_candidates.elected2013','desc')->where('office_sought2013', '=', $id)->leftjoin('organizations', '2013_candidates.organizations2013', 'like', DB::raw("concat('%', organizations.organization_id, '%')"))->select('2013_candidates.*', DB::raw('group_concat(organizations.organization SEPARATOR ", ") as organization_name'))->groupBy('2013_candidates.id')->get();
+        $candidates = DB::table('2013_candidates')->orderBy('2013_candidates.elected2013','desc')->where('office_sought2013', '=', $id)->leftjoin('organizations', '2013_candidates.organizations2013', 'like', DB::raw("concat('%', organizations.organization_id, '%')"))->select('2013_candidates.*', DB::raw('group_concat(organizations.organization) as organization_name'))->groupBy('2013_candidates.id')->orderBy('2013_candidates.elected2013','desc')->get();
 
         return view('frontend.office', compact('office', 'candidaters', 'candidates'));
     }

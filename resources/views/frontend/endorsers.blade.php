@@ -17,6 +17,28 @@
                     div.DTS div.dataTables_scrollBody {
                         background: transparent; 
                     }
+                    .dataTables_filter{
+                        margin-top: -65px;
+                        margin-right: 180px;
+                        
+                    }
+                    div.dataTables_wrapper div.dataTables_filter {
+                        float: left;
+                    }
+                    @media (max-width: 991px){
+                        .dataTables_filter{
+                            margin-top: -55px;
+                            margin-right: 180px;
+                        }
+                        .portlet.light .dataTables_wrapper .dt-buttons {
+                            margin-top: -55px;
+                        }
+                    }
+                    @media (max-width: 767px){
+                        .portlet.light .dataTables_wrapper .dt-buttons {
+                            margin-top: -59px;
+                        }
+                    }
                 </style>
                 </div>
             </div>
@@ -102,7 +124,7 @@
                                                         <tbody>
                                                             @foreach($organizations as $organization)
                                                             <tr>
-                                                                <td><a href="/endorser_{{$organization->organization_id}}">{{$organization->organization}}</a></td>
+                                                                <td><a href="/endorser_{{$organization->organization}}">{{$organization->organization}}</a></td>
                                                                 <td>{{$organization->type}}</td>
                                                                 <td>{{sizeof(explode(",", $organization->endorsements2013))}}</td>
                                                                 <td>{{sizeof(explode(",", $organization->endorsments2017))}}</td>

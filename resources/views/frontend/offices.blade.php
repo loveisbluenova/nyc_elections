@@ -17,6 +17,24 @@
                     div.DTS div.dataTables_scrollBody {
                         background: transparent; 
                     }
+                    .dataTables_filter{
+                        margin-top: -65px;
+                        margin-right: 180px;
+                    }
+                    @media (max-width: 991px){
+                        .dataTables_filter{
+                            margin-top: -55px;
+                            margin-right: 180px;
+                        }
+                        .portlet.light .dataTables_wrapper .dt-buttons {
+                            margin-top: -55px;
+                        }
+                    }
+                    @media (max-width: 767px){
+                        .portlet.light .dataTables_wrapper .dt-buttons {
+                            margin-top: -59px;
+                        }
+                    }
                 </style>
                 </div>
             </div>
@@ -74,7 +92,7 @@
                                                         </div>
                                                     
                                                     </div>
-                                                    <div class="col-md-4" style="padding-right: 0;">
+                                                    <div class="col-md-4">
                                                         <div class="form-group">
                                                             <div class="input-group select2-bootstrap-prepend">
                                                                 <span class="input-group-addon" style="background-color: #fafafa;">
@@ -99,7 +117,6 @@
                                                             <tr>
                                                                 <th>Office&nbsp;Name</th>
                                                                 <th>Borough</th>
-                                                            <!--    <th>Neighborhoods</th>-->
                                                                 <th>2013 Candidates</th>
                                                                 <th>2017 Candidates</th>
                                                             </tr>
@@ -109,7 +126,6 @@
                                                             <tr>
                                                                 <td><a href="office_{{$office->office_sought_id}}">{{$office->name}}</a></td>
                                                                 <td>{{$office->borough}}</td>
-                                                            <!--    <td>{{$office->neighborhoods}}</td>-->
                                                                 <td>{{sizeof(explode(",", $office->candidates2013))}}</td>
                                                                 <td>{{sizeof(explode(",", $office->candidates2017))}}</td>
                                                             </tr>

@@ -17,6 +17,9 @@
                     div.DTS div.dataTables_scrollBody {
                         background: transparent; 
                     }
+                    .portlet.light{
+                        height: 290px;
+                    }
                 </style>
                 </div>
             </div>
@@ -51,78 +54,98 @@
                                     <!-- END PAGE CONTENT INNER -->
                                 </div>
                                 <div class="container">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                            <div class="portlet light ">
-                                                <div class="portlet-title">
-                                                    <div class="caption font-red">
-                                                        <span class="caption-subject bold uppercase">2017 Candidates</span>
-                                                    </div>                            
-                                                    <div class="tools"> </div>
-                                                </div>
-                                                <div class="portlet-body">
-                                                    <table class="table table-striped table-bordered table-hover order-column" id="sample_1">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Candidate&nbsp;Name</th>
-                                                                <th>Party</th>
-                                                                <th>Endorser</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach($candidaters as $candidater)
-                                                            <tr>
-                                                                <td>{{$candidater->last2017}} {{$candidater->first2017}}</td>
-                                                                <td>{{$candidater->party2017}}</td>
-                                                                <td>{{$candidater->organization_name}}</td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="m-heading-1 border-green m-bordered">
+                                        <p style="font-size: 20px; color: #f00;">2017 Candidates</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
-                                            <div class="portlet light ">
-                                                <div class="portlet-title">  
-                                                    <div class="caption font-blue">
-                                                        <span class="caption-subject bold uppercase">2013 Candidates</span>
-                                                    </div>                          
-                                                    <div class="tools"> </div>
+                                            @foreach($candidaters as $candidater)
+                                                 <div class="col-md-4">
+                                                    <!-- BEGIN PORTLET-->
+                                                    <div class="portlet light ">
+                                                        <div class="portlet-title">
+                                                            <div class="caption font-purple-plum">
+                                                                <i class="icon-speech font-purple-plum"></i>
+                                                                <span class="caption-subject bold uppercase">{{$candidater->last2017}} {{$candidater->first2017}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body scrollspy-example"  data-spy="scroll" data-target="#navbar-example2">
+                                                            <div id="context" data-toggle="context" data-target="#context-menu">
+                                                                <p><span class="label label-sm label-primary circle">Party</span> {{$candidater->party2017}}</p>
+                                                                 <p><span class="label label-sm label-primary circle">Endorser</span></p>
+                                                                @php
+                                                                    $endorses = (explode(",", $candidater->organization_name))
+                                                                @endphp
+                                                                @foreach($endorses as $endorse)
+                                                                    <p style="margin-left: 20px;"><a href="endorser_{{$endorse}}">{{$endorse}}</a><p>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END PORTLET-->
                                                 </div>
-                                                <div class="portlet-body">
-                                                    <table class="table table-striped table-bordered table-hover order-column" id="sample_5">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>Candidate&nbsp;Name</th>
-                                                                <th>Party</th>
-                                                                <th>Endorser</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach($candidates as $candidate)
-                                                                @if($candidate->elected2013==1)
-                                                                <tr>  
-                                                                    <td style="color: #f00;">{{$candidate->lastname2013}} {{$candidate->firstname2013}}</td>
-                                                                    <td style="color: #f00;">{{$candidate->party2013}}</td>
-                                                                    <td style="color: #f00;">{{$candidate->organization_name}}</td>
-                                                                </tr>
-                                                                @else
-                                                                <tr>  
-                                                                    <td>{{$candidate->lastname2013}} {{$candidate->firstname2013}}</td>
-                                                                    <td>{{$candidate->party2013}}</td>
-                                                                    <td>{{$candidate->organization_name}}</td>
-                                                                </tr>
-                                                                @endif
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                    <div class="m-heading-1 border-red m-bordered">
+                                        <p style="font-size: 20px; color: #3598dc;">2013 Candidates</p>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            @foreach($candidates as $candidate)
+                                                @if($candidate->elected2013==1)
+                                                <div class="col-md-4">
+                                                    <!-- BEGIN PORTLET-->
+                                                    <div class="portlet light ">
+                                                        <div class="portlet-title">
+                                                            <div class="caption font-purple-plum">
+                                                                <i class="icon-speech font-purple-plum"></i>
+                                                                <span class="caption-subject bold uppercase" style="color: #f00;">{{$candidate->lastname2013}} {{$candidate->firstname2013}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body scrollspy-example"  data-spy="scroll" data-target="#navbar-example2">
+                                                            <div id="context" data-toggle="context" data-target="#context-menu">
+                                                                <p><span class="label label-sm label-primary circle">Party</span> {{$candidate->party2013}}</p>
+                                                                 <p><span class="label label-sm label-primary circle">Endorser</span></p>
+                                                                @php
+                                                                    $endorsers = (explode(",", $candidate->organization_name))
+                                                                @endphp
+                                                                @foreach($endorsers as $endorser)
+                                                                    <p style="margin-left: 20px;"><a href="endorser_{{$endorser}}">{{$endorser}}</a><p>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END PORTLET-->
                                                 </div>
-                                            </div>
+                                                @else
+                                                <div class="col-md-4">
+                                                    <!-- BEGIN PORTLET-->
+                                                    <div class="portlet light ">
+                                                        <div class="portlet-title">
+                                                            <div class="caption font-purple-plum">
+                                                                <i class="icon-speech font-purple-plum"></i>
+                                                                <span class="caption-subject bold uppercase">{{$candidate->lastname2013}} {{$candidate->firstname2013}}</span>
+                                                            </div>
+                                                        </div>
+                                                        <div class="portlet-body scrollspy-example"  data-spy="scroll" data-target="#navbar-example2">
+                                                            <div id="context" data-toggle="context" data-target="#context-menu">
+                                                                <p><span class="label label-sm label-primary circle">Party</span> {{$candidate->party2013}}</p>
+                                                                 <p><span class="label label-sm label-primary circle">Endorser</span></p>
+                                                                @php
+                                                                    $endorsers = (explode(",", $candidate->organization_name))
+                                                                @endphp
+                                                                @foreach($endorsers as $endorser)
+                                                                    <p style="margin-left: 20px;"><a href="endorser_{{$endorser}}">{{$endorser}}</a><p>
+                                                                @endforeach
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- END PORTLET-->
+                                                </div>
+                                                @endif
+                                            @endforeach
                                         </div>
                                     </div>
                                 </div>

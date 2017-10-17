@@ -43,10 +43,14 @@ class EndorserController extends Controller
     public function find($id)
 
     {
-        $organization = DB::table('organizations')->where('organization_id', '=', $id)->first();
-        $endorsers= DB::table('2013_candidates')->where('organizations2013', 'like', '%'.$id.'%')->leftjoin('office_sought', '2013_candidates.office_sought2013', '=', 'office_sought.office_sought_id')->orderBy('2013_candidates.elected2013','desc')->get();
+        $organization = DB::table('organizations')->where('organization', '=', $id)->first();
 
-        $endorserts= DB::table('2017_candidates')->where('organizations2017', 'like', '%'.$id.'%')->leftjoin('office_sought', '2017_candidates.office_sought2017', '=', 'office_sought.office_sought_id')->get();
+        $is=$organization->organization_id;
+       
+       
+        $endorsers= DB::table('2013_candidates')->where('organizations2013', 'like', '%'.$is.'%')->leftjoin('office_sought', '2013_candidates.office_sought2013', '=', 'office_sought.office_sought_id')->orderBy('2013_candidates.elected2013','desc')->get();
+
+        $endorserts= DB::table('2017_candidates')->where('organizations2017', 'like', '%'.$is.'%')->leftjoin('office_sought', '2017_candidates.office_sought2017', '=', 'office_sought.office_sought_id')->get();
 
         return view('frontend.endorser', compact('endorsers', 'endorserts','organization'));
     }

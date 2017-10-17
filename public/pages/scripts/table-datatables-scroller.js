@@ -155,9 +155,6 @@ var TableDatatablesScroller = function () {
             scrollY:        300,
             deferRender:    true,
             scroller:       true,
-            deferRender:    true,
-            scrollX:        true,
-            scrollCollapse: true,        
 
             stateSave:      true,
 
@@ -217,9 +214,8 @@ var TableDatatablesScroller = function () {
             scrollY:        300,
             deferRender:    true,
             scroller:       true,
-            deferRender:    true,
-            scrollX:        true,
-            scrollCollapse: true,      
+
+            stateSave:      true,     
 
             "order": [
                 [0, 'asc']

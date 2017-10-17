@@ -71,7 +71,6 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Candidate&nbsp;Name</th>
-                                                                <th>Classification</th>
                                                                 <th>Party</th>
                                                                 <th>Office</th>
                                                             </tr>
@@ -81,14 +80,12 @@
                                                             @if($endorser->elected2013==1)
                                                             <tr>
                                                                 <td style="color: #f00;">{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
-                                                                <td style="color: #f00;">{{$endorser->classification2013}}</td>
                                                                 <td style="color: #f00;">{{$endorser->party2013}}</td>
                                                                 <td style="color: #f00;">{{$endorser->name}}</td>
                                                             </tr>
                                                             @else
                                                             <tr>
                                                                 <td>{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
-                                                                <td>{{$endorser->classification2013}}</td>
                                                                 <td>{{$endorser->party2013}}</td>
                                                                 <td>{{$endorser->name}}</td>
                                                             </tr>
@@ -113,7 +110,6 @@
                                                         <thead>
                                                             <tr>
                                                                 <th>Candidate&nbsp;Name</th>
-                                                                <th>Classification</th>
                                                                 <th>Party</th>
                                                                 <th>Office</th>
                                                             </tr>
@@ -122,7 +118,6 @@
                                                             @foreach($endorserts as $endorsert)
                                                             <tr>
                                                                 <td>{{$endorsert->last2017}} {{$endorsert->first2017}}</td>
-                                                                <td>{{$endorsert->classification2017}}</td>
                                                                 <td>{{$endorsert->party2017}}</td>
                                                                 <td>{{$endorsert->name}}</td>
                                                             </tr>
@@ -151,4 +146,5 @@
 
 
 @include('layouts.script')
+
 
