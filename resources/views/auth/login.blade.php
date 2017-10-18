@@ -15,7 +15,7 @@
 @section('content')
     <div class="login-box">
 		<div class="login-logo">
-			<a href="/"><strong>endorser.votedevin</strong></a>
+			<a href="/"><strong>endorsements.votedevin.com</strong></a>
 		</div>
 		<div class="login-box-body">
 

@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="container">
                                     <div class="m-heading-1 border-green m-bordered">
-                                        <p style="font-size: 20px; color: #f00;">2017 Candidates</p>
+                                        <p style="font-size: 20px; color: #f00;">2017 Primary Endorsements</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="m-heading-1 border-red m-bordered">
-                                        <p style="font-size: 20px; color: #3598dc;">2013 Candidates</p>
+                                        <p style="font-size: 20px; color: #3598dc;">2013 Primary Endorsements</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">

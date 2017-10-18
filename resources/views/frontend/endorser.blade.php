@@ -48,7 +48,7 @@
                                     <div class="page-content-inner">
                                         <div class="note note-blue">
                                             <p style="padding-bottom: 20px;font-size: 24px;"><b>{{$organization->organization}} </b><span class="label label-sm label-primary circle">{{$organization->type}}</span></p>
-                                            <a href="{{$organization->website}}" target="_blank"><i class="fa fa-globe fa-3x"></i></a>
+                                            <a href="{{$organization->website}}" target="_blank"><img src="https://image.flaticon.com/icons/svg/34/34735.svg" width="30" height="30" style="margin-top: -20px;"></a>
                                             <a href="{{$organization->twitter}}" target="_blank" class="socicon-btn socicon-btn-circle socicon-solid bg-green font-white bg-hover-grey-salsa socicon-twitter tooltips" data-original-title="Twitter" aria-describedby="tooltip212351"></a>
                                             <a href="{{$organization->facebook}}" target="_blank" class="socicon-btn socicon-btn-circle socicon-solid bg-blue font-white bg-hover-grey-salsa socicon-facebook tooltips" data-original-title="Facebook" aria-describedby="tooltip356210"></a>
                                         </div>
@@ -62,7 +62,7 @@
                                             <div class="portlet light ">
                                                 <div class="portlet-title">
                                                     <div class="caption font-green">
-                                                        <span class="caption-subject bold uppercase">2013 Endorsements</span>
+                                                        <span class="caption-subject bold">2013 Primary Endorsements</span>
                                                     </div>
                                                     <div class="tools"> </div>
                                                 </div>
@@ -81,13 +81,13 @@
                                                             <tr>
                                                                 <td style="color: #f00;">{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
                                                                 <td style="color: #f00;">{{$endorser->party2013}}</td>
-                                                                <td style="color: #f00;">{{$endorser->name}}</td>
+                                                                <td style="color: #f00;"><a href="office_{{$endorser->office_sought2013}}" style="color: #f00;">{{$endorser->name}}</a></td>
                                                             </tr>
                                                             @else
                                                             <tr>
                                                                 <td>{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
                                                                 <td>{{$endorser->party2013}}</td>
-                                                                <td>{{$endorser->name}}</td>
+                                                                <td style="color: #f00;"><a href="office_{{$endorser->office_sought2013}}">{{$endorser->name}}</a></td>
                                                             </tr>
                                                             @endif
                                                              @endforeach
@@ -101,7 +101,7 @@
                                             <div class="portlet light ">
                                                 <div class="portlet-title">
                                                     <div class="caption font-red">
-                                                        <span class="caption-subject bold uppercase">2017 Endorsements</span>
+                                                        <span class="caption-subject bold">2017 Primary Endorsements</span>
                                                     </div>
                                                     <div class="tools"> </div>
                                                 </div>
@@ -119,7 +119,7 @@
                                                             <tr>
                                                                 <td>{{$endorsert->last2017}} {{$endorsert->first2017}}</td>
                                                                 <td>{{$endorsert->party2017}}</td>
-                                                                <td>{{$endorsert->name}}</td>
+                                                                <td style="color: #f00;"><a href="office_{{$endorsert->office_sought2017}}">{{$endorsert->name}}</a></td>
                                                             </tr>
                                                             @endforeach
                                                         </tbody>
