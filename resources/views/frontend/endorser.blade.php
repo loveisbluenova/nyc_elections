@@ -67,7 +67,7 @@
                                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                             <div class="portlet light ">
                                                 <div class="portlet-title">
-                                                    <div class="caption font-green">
+                                                    <div class="caption font-blue">
                                                         <span class="caption-subject bold">2013 Primary Endorsements</span>
                                                     </div>
                                                     <div class="tools"> </div>
@@ -85,15 +85,15 @@
                                                             @foreach($endorsers as $endorser)
                                                             @if($endorser->elected2013==1)
                                                             <tr>
-                                                                <td style="color: #f00;">{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
-                                                                <td style="color: #f00;">{{$endorser->party2013}}</td>
-                                                                <td style="color: #f00;"><a href="office_{{$endorser->office_sought2013}}" style="color: #f00;">{{$endorser->name}}</a></td>
+                                                                <td>{{$endorser->lastname2013}}, {{$endorser->firstname2013}}&nbsp;&nbsp;<span class="label label-sm label-success circle">Elected</span></td>
+                                                                <td>{{$endorser->party2013}}</td>
+                                                                <td><a href="office_{{$endorser->office_sought2013}}">{{$endorser->name}}</a></td>
                                                             </tr>
                                                             @else
                                                             <tr>
-                                                                <td>{{$endorser->lastname2013}} {{$endorser->firstname2013}}</td>
+                                                                <td>{{$endorser->lastname2013}}, {{$endorser->firstname2013}}</td>
                                                                 <td>{{$endorser->party2013}}</td>
-                                                                <td style="color: #f00;"><a href="office_{{$endorser->office_sought2013}}">{{$endorser->name}}</a></td>
+                                                                <td><a href="office_{{$endorser->office_sought2013}}">{{$endorser->name}}</a></td>
                                                             </tr>
                                                             @endif
                                                              @endforeach
@@ -106,7 +106,7 @@
                                             <!-- BEGIN EXAMPLE TABLE PORTLET-->
                                             <div class="portlet light ">
                                                 <div class="portlet-title">
-                                                    <div class="caption font-red">
+                                                    <div class="caption font-blue">
                                                         <span class="caption-subject bold">2017 Primary Endorsements</span>
                                                     </div>
                                                     <div class="tools"> </div>
@@ -123,7 +123,7 @@
                                                         <tbody>
                                                             @foreach($endorserts as $endorsert)
                                                             <tr>
-                                                                <td>{{$endorsert->last2017}} {{$endorsert->first2017}}</td>
+                                                                <td>{{$endorsert->last2017}}, {{$endorsert->first2017}}</td>
                                                                 <td>{{$endorsert->party2017}}</td>
                                                                 <td style="color: #f00;"><a href="office_{{$endorsert->office_sought2017}}">{{$endorsert->name}}</a></td>
                                                             </tr>

@@ -33,7 +33,7 @@ var TableDatatablesScroller = function () {
             ],
 
             // scroller extension: http://datatables.net/extensions/scroller/
-            scrollY:        300,
+            scrollY:        540,
             deferRender:    true,
             scroller:       true,
 
@@ -110,7 +110,7 @@ var TableDatatablesScroller = function () {
                     } );
                 }, 50 );
             },
-            scrollY: 400,
+            scrollY: 550,
             scroller: {
                 loadingIndicator: true
             },
@@ -152,7 +152,7 @@ var TableDatatablesScroller = function () {
             ],
 
             // scroller extension: http://datatables.net/extensions/scroller/
-            scrollY:        300,
+            scrollY:        550,
             deferRender:    true,
             scroller:       true,
 
@@ -211,7 +211,7 @@ var TableDatatablesScroller = function () {
             ],
 
             // scroller extension: http://datatables.net/extensions/scroller/
-            scrollY:        300,
+            scrollY:        550,
             deferRender:    true,
             scroller:       true,
 
@@ -270,7 +270,7 @@ var TableDatatablesScroller = function () {
             ],
 
             // scroller extension: http://datatables.net/extensions/scroller/
-            scrollY:        300,
+            scrollY:        550,
             deferRender:    true,
             scroller:       true,
 

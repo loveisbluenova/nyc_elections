@@ -55,7 +55,7 @@
                                 </div>
                                 <div class="container">
                                     <div class="m-heading-1 border-green m-bordered">
-                                        <p style="font-size: 20px; color: #f00;">2017 Primary Endorsements</p>
+                                        <p style="font-size: 20px; color: #3598dc;  font-weight: 800;">2017 Primary Endorsements</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -66,8 +66,8 @@
                                                     <div class="portlet light ">
                                                         <div class="portlet-title">
                                                             <div class="caption font-purple-plum">
-                                                                <i class="icon-speech font-purple-plum"></i>
-                                                                <span class="caption-subject bold uppercase">{{$candidater->last2017}} {{$candidater->first2017}}</span>
+                                                                <i class="fa fa-user font-purple-plum"></i>
+                                                                <span class="caption-subject bold">{{$candidater->last2017}}, {{$candidater->first2017}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="portlet-body scrollspy-example"  data-spy="scroll" data-target="#navbar-example2">
@@ -89,7 +89,7 @@
                                         </div>
                                     </div>
                                     <div class="m-heading-1 border-red m-bordered">
-                                        <p style="font-size: 20px; color: #3598dc;">2013 Primary Endorsements</p>
+                                        <p style="font-size: 20px; color: #3598dc; font-weight: 800;">2013 Primary Endorsements</p>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
@@ -100,8 +100,8 @@
                                                     <div class="portlet light ">
                                                         <div class="portlet-title">
                                                             <div class="caption font-purple-plum">
-                                                                <i class="icon-speech font-purple-plum"></i>
-                                                                <span class="caption-subject bold uppercase" style="color: #f00;">{{$candidate->lastname2013}} {{$candidate->firstname2013}}</span>
+                                                                <i class="fa fa-user font-purple-plum"></i>
+                                                                <span class="caption-subject bold">{{$candidate->lastname2013}}, {{$candidate->firstname2013}}&nbsp;&nbsp;<span class="label label-sm label-success circle">Elected</span></span>
                                                             </div>
                                                         </div>
                                                         <div class="portlet-body scrollspy-example"  data-spy="scroll" data-target="#navbar-example2">
@@ -125,8 +125,8 @@
                                                     <div class="portlet light ">
                                                         <div class="portlet-title">
                                                             <div class="caption font-purple-plum">
-                                                                <i class="icon-speech font-purple-plum"></i>
-                                                                <span class="caption-subject bold uppercase">{{$candidate->lastname2013}} {{$candidate->firstname2013}}</span>
+                                                                <i class="fa fa-user font-purple-plum"></i>
+                                                                <span class="caption-subject bold">{{$candidate->lastname2013}}, {{$candidate->firstname2013}}</span>
                                                             </div>
                                                         </div>
                                                         <div class="portlet-body scrollspy-example"  data-spy="scroll" data-target="#navbar-example2">
