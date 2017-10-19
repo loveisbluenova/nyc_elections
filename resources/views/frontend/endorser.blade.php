@@ -48,9 +48,15 @@
                                     <div class="page-content-inner">
                                         <div class="note note-blue">
                                             <p style="padding-bottom: 20px;font-size: 24px;"><b>{{$organization->organization}} </b><span class="label label-sm label-primary circle">{{$organization->type}}</span></p>
+                                            @if($organization->website!=null)
                                             <a href="{{$organization->website}}" target="_blank"><img src="https://image.flaticon.com/icons/svg/34/34735.svg" width="30" height="30" style="margin-top: -20px;"></a>
+                                            @endif
+                                            @if($organization->twitter!=null)
                                             <a href="{{$organization->twitter}}" target="_blank" class="socicon-btn socicon-btn-circle socicon-solid bg-green font-white bg-hover-grey-salsa socicon-twitter tooltips" data-original-title="Twitter" aria-describedby="tooltip212351"></a>
+                                            @endif
+                                            @if($organization->facebook!=null)
                                             <a href="{{$organization->facebook}}" target="_blank" class="socicon-btn socicon-btn-circle socicon-solid bg-blue font-white bg-hover-grey-salsa socicon-facebook tooltips" data-original-title="Facebook" aria-describedby="tooltip356210"></a>
+                                            @endif
                                         </div>
                                     </div>
                                     <!-- END PAGE CONTENT INNER -->
